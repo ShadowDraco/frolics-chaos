@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "draco-tutorial-mod",
+  "version": "${version}",
+
+  "name": "Techno Tutorial Mod",
+  "description": "This is a tutorial by TechnoVision!",
+  "authors": [
+    "Ethan Storm"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/draco-tutorial-mod/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.shadowdraco.tutorial.TutorialMod"
+    ]
+  },
+  "mixins": [],
+
+  "depends": {
+    "fabricloader": ">=0.14.11",
+    "fabric-api": "*",
+    "minecraft": "~1.19.3",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "draco-tutorial-mod:ruby"
+    }
+  },
+  "result": {
+      "item":"draco-tutorial-mod:ruby_block"
+  }
+}
