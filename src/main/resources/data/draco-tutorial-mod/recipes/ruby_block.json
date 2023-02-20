@@ -11,6 +11,7 @@
     }
   },
   "result": {
-      "item":"draco-tutorial-mod:ruby_block"
+      "item":"draco-tutorial-mod:ruby_block",
+      "count": 1
   }
 }

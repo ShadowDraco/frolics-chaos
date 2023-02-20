@@ -10,6 +10,7 @@ import net.minecraft.block.Material;
 import net.minecraft.sound.BlockSoundGroup;
 
 // get the block's position
+import net.minecraft.state.StateManager;
 import net.minecraft.text.Text;
 import net.minecraft.util.Arm;
 import net.minecraft.util.math.BlockPos;
@@ -25,12 +26,25 @@ public class RubyBlock extends Block {
 
         // initialize a Block with new settings
         super(FabricBlockSettings
-                .of(Material.STONE, MapColor.RED)
+                .of(Material.METAL, MapColor.RED)
                 .requiresTool()
                 .strength(6.0F, 6.0F)
                 .sounds(BlockSoundGroup.METAL)
         );
+
+        // set the default state of the block
+        setDefaultState(getDefaultState());
     }
+
+    // override block properties
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        // add custom property to the block
+        // builder.add(property)
+        super.appendProperties(builder);
+    }
+
+
 
     @Override
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {

@@ -1,11 +1,12 @@
 package com.shadowdraco.tutorial;
 
-import net.minecraft.block.Blocks;
+
+import com.shadowdraco.tutorial.registry.ModBlocks;
+
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class DoubleJumper extends Thread {
     private Boolean running = true;
     private final PlayerEntity player;
 
-    private final ArrayList BlocksPlaced = new ArrayList<BlockPos>();
+    private final ArrayList<BlockPos> BlocksPlaced = new ArrayList<>();
 
     public DoubleJumper(World world, PlayerEntity player) {
         this.world = world;
@@ -34,6 +35,7 @@ public class DoubleJumper extends Thread {
                     // wait to see if the player is in the air
                     if (!player.isOnGround()) {
 
+                        //noinspection BusyWait
                         sleep(200);
 
                         if (Math.abs(player.getSteppingPos().getY() - yPos) > 1) {
@@ -42,9 +44,9 @@ public class DoubleJumper extends Thread {
                             BlockPos middlePos = playerPos.offset(player.getMovementDirection(), 1);
                             BlockPos frontPos = playerPos.offset(player.getMovementDirection(), 2);
 
-                            world.setBlockState(playerPos, Blocks.RED_NETHER_BRICKS.getDefaultState());
-                            world.setBlockState(middlePos, Blocks.RED_NETHER_BRICKS.getDefaultState());
-                            world.setBlockState(frontPos, Blocks.RED_NETHER_BRICKS.getDefaultState());
+                            world.setBlockState(playerPos, ModBlocks.RUBY_BLOCK.getDefaultState());
+                            world.setBlockState(middlePos, ModBlocks.RUBY_BLOCK.getDefaultState());
+                            world.setBlockState(frontPos, ModBlocks.RUBY_BLOCK.getDefaultState());
 
                             BlocksPlaced.add(playerPos);
                             BlocksPlaced.add(middlePos);
@@ -64,8 +66,8 @@ public class DoubleJumper extends Thread {
     public void deleteBlocks() {
         System.out.println("\n\nDeleting blocks\n\n");
         running = false;
-        for (Object block : BlocksPlaced) {
-            world.removeBlock((BlockPos) block, false);
+        for (BlockPos block : BlocksPlaced) {
+            world.removeBlock(block, false);
         }
         System.out.println("Blocks removed");
     }
