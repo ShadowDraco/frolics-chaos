@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": {
+      "item": "draco-tutorial-mod:ruby"
+    }
+  },
+  "pattern": [
+    "X X",
+    "X X"
+  ],
+  "result": {
+    "item": "draco-tutorial-mod:ruby_boots"
+  }
+}
