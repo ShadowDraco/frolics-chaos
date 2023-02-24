@@ -1,6 +1,6 @@
-package com.shadowdraco.tutorial.items;
+package com.shadowdraco.tutorial.items.custom;
 
-import com.shadowdraco.tutorial.DoubleJumper; // import my custom thread
+import com.shadowdraco.tutorial.lib.DoubleJumper; // import my custom thread
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.player.PlayerEntity;
@@ -13,6 +13,11 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 public class RubyItem extends Item{
+
+    public RubyItem() {
+
+        super(new FabricItemSettings().rarity(Rarity.RARE).maxCount(32));
+    }
 
     public static Boolean charged = false;
     DoubleJumper t;
@@ -48,9 +53,5 @@ public class RubyItem extends Item{
             t.deleteBlocks();
             t.interrupt();
         }
-    }
-
-    public RubyItem() {
-        super(new FabricItemSettings().rarity(Rarity.RARE).maxCount(32));
     }
 }

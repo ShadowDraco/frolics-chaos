@@ -1,4 +1,4 @@
-package com.shadowdraco.tutorial;
+package com.shadowdraco.tutorial.lib;
 
 
 import com.shadowdraco.tutorial.registry.ModBlocks;

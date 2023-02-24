@@ -1,4 +1,4 @@
-package com.shadowdraco.tutorial.blocks;
+package com.shadowdraco.tutorial.blocks.custom;
 
 // Everything the mod needs to create a new block
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;

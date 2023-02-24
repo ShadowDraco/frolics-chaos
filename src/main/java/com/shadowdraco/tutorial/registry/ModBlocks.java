@@ -4,7 +4,7 @@ package com.shadowdraco.tutorial.registry;
 import com.shadowdraco.tutorial.TutorialMod;
 
 // give the block a unique identifier
-import com.shadowdraco.tutorial.blocks.RubyBlock;
+import com.shadowdraco.tutorial.blocks.custom.RubyBlock;
 import net.minecraft.util.Identifier;
 // allow the mod to register the new block
 import net.minecraft.registry.Registries;
