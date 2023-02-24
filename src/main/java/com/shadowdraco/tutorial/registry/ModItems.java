@@ -87,13 +87,13 @@ public class ModItems {
         Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, "ruby_helmet"), RUBY_HELMET);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(RUBY_HELMET));
         // register the chest plate
-        Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, "ruby_helmet"), RUBY_CHESTPLATE);
+        Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, "ruby_chestplate"), RUBY_CHESTPLATE);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(RUBY_CHESTPLATE));
         // register the leggings
-        Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, "ruby_helmet"), RUBY_LEGGINGS);
+        Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, "ruby_leggings"), RUBY_LEGGINGS);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(RUBY_LEGGINGS));
         // register the boots
-        Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, "ruby_helmet"), RUBY_BOOTS);
+        Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, "ruby_boots"), RUBY_BOOTS);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(RUBY_BOOTS));
     }
 }
