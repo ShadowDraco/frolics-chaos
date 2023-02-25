@@ -5,10 +5,12 @@ import com.shadowdraco.tutorial.TutorialMod;
 
 // give the block a unique identifier
 import com.shadowdraco.tutorial.blocks.custom.RubyBlock;
+
 import net.minecraft.util.Identifier;
 // allow the mod to register the new block
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+
 
 public class ModBlocks {
 
@@ -25,6 +27,4 @@ public class ModBlocks {
         // Add block to the registry
         Registry.register(Registries.BLOCK, new Identifier(TutorialMod.MOD_ID, "ruby_block"), RUBY_BLOCK);
     }
-
-    
 }

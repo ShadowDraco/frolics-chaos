@@ -5,6 +5,8 @@ package com.shadowdraco.tutorial;
 import com.shadowdraco.tutorial.registry.ModBlocks;
 import com.shadowdraco.tutorial.registry.ModItems;
 import com.shadowdraco.tutorial.registry.ModStats;
+
+import com.shadowdraco.tutorial.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer; // imported as an implement
 
 /*
@@ -76,6 +78,8 @@ public class TutorialMod implements ModInitializer{
         // On initialization register items
         ModItems.registerItems();
         ModBlocks.registerBlocks();
+        ModWorldGeneration.generateModWorldGen();
+
         ModStats.registerStats();
     }
 
