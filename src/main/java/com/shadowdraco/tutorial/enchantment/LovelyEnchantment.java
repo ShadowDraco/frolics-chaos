@@ -13,6 +13,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 
 
@@ -33,6 +34,13 @@ public class LovelyEnchantment extends Enchantment {
         return 3;
     }
 
+
+    // make it only usable for ruby pickaxe
+    @Override
+    public boolean isAcceptableItem(ItemStack stack) {
+        return super.isAcceptableItem(stack);
+    }
+
     @Override
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {
 
@@ -44,8 +52,8 @@ public class LovelyEnchantment extends Enchantment {
 
     @Override
     public void onUserDamaged(LivingEntity user, Entity attacker, int level) {
-        // add regeneration for (1 second of game ticks) * (2 seconds) * level of enchantment with (level) potency
-        user.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 20 * 2 * level, level));
-        attacker.damage(DamageSource.player((PlayerEntity) user), level);
+        // add regeneration for half a second ticks with (level) potency
+        user.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 10, level));
+        attacker.damage(DamageSource.player((PlayerEntity) user), level / 2F);
     }
 }
