@@ -3,6 +3,7 @@ package com.shadowdraco.tutorial;
 
 // import custom registry classes for the mod
 import com.shadowdraco.tutorial.registry.ModBlocks;
+import com.shadowdraco.tutorial.registry.ModEnchantments;
 import com.shadowdraco.tutorial.registry.ModItems;
 import com.shadowdraco.tutorial.registry.ModStats;
 
@@ -79,6 +80,8 @@ public class TutorialMod implements ModInitializer{
         ModItems.registerItems();
         ModBlocks.registerBlocks();
         ModWorldGeneration.generateModWorldGen();
+
+        ModEnchantments.registerEnchantments();
 
         ModStats.registerStats();
     }
