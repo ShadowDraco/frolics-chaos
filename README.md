@@ -37,13 +37,12 @@
   <br><br>
   
   - added **Lovely** enchantment (max level 3)
-    - "silk touch" spawners
+    - "silk touch" spawners 
     - when holding the enchanted **Tool**:
       - regeneration when hit by a mob (not projectiles or explosions they caused)
       - restore small amount of hunger as well
-    - when using the enchanted item:
       - spawns heart particles on block break **( not working anyone know why??)**
-      - gives massive regeneration to hurt mobs
+      - gives massive regeneration to hurt mobs (undead can't regenerate)
     - Saves you from the wrath of Ruby!
   
   <br><br>
@@ -56,10 +55,11 @@
     - Don't go above y level 30 because all blocks are removed when toggled off
     - much more responsive than the ruby "Double jumper" because this is a safety feature!!
     However, it is lacking in freedom, only for use in the caves :)
+    - Remember to toggle off your AFK mine enchant when not in use to delete the blocks
 
   <br><br>
 
-  - added *stats* for sapphires and rubies silk-touched spawners (more to come)!!
+  - added *stats* for sapphires, rubies, silk-touched spawners, etc (more to come)!!
 
 <hr>
 
