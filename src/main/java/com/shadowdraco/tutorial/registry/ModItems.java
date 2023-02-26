@@ -63,7 +63,7 @@ public class ModItems {
         // import Registry and call .register, passing the .ITEM registry, and a new identifier for the item
         // every item has a special             identifier ( modid:itemName )
         Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, "ruby"), RUBY); // last parameter is the RUBY item.
-        FuelRegistry.INSTANCE.add(RUBY, 300); // add ruby as furnace fuel
+        FuelRegistry.INSTANCE.add(RUBY, 5000); // add ruby as furnace fuel
         // then modify the item group entries to include this item in the Ingredients item group
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> entries.add(RUBY));
     }
@@ -81,7 +81,6 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> entries.add(RUBY_BLOCK_ITEM));
     }
     static void registerRubyArmorItems() {
-        System.out.println("\n--DTM Registering Ruby Armor!---");
 
         // register the helmet and add it to an item group
         Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, "ruby_helmet"), RUBY_HELMET);

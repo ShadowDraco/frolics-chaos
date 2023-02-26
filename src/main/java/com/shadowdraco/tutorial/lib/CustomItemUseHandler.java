@@ -1,5 +1,6 @@
 package com.shadowdraco.tutorial.lib;
 
+import com.shadowdraco.tutorial.items.custom.SapphireItem;
 import com.shadowdraco.tutorial.registry.ModEnchantments;
 import com.shadowdraco.tutorial.registry.ModItems;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -22,14 +23,26 @@ public class CustomItemUseHandler {
         System.out.println("\n--DTM created custom item use handler !---");
     }
 
-    public TypedActionResult<ItemStack> customUse(World world, PlayerEntity player, Hand ignoredHand) {
+    public TypedActionResult<ItemStack> customUse(World world, PlayerEntity player, Hand hand) {
         // get the item that is equipped in the player's hand
         ItemStack usedStack = player.getEquippedStack(EquipmentSlot.MAINHAND);
 
         if (!world.isClient) {
-            // if the item used has the afk mine enchant
+            // check specific items and skip the rest then check variable items
+
+            // check if a ruby is used
+            if (usedStack.getItem() == ModItems.RUBY) {
+                checkDoubleJumper(world, player, hand);
+                return TypedActionResult.success(usedStack);
+            }
+            // check if a sapphire is used
+            if (usedStack.getItem() == ModItems.SAPPHIRE) {
+                SapphireItem.useSapphire(world, player, hand);
+                return TypedActionResult.success(usedStack);
+            }
+            // check if an item with afk mine is used
             checkAfkBlocker(world, player, usedStack);
-            checkDoubleJumper(world, player, usedStack);
+
         }
         return TypedActionResult.success(usedStack);
     }
@@ -72,9 +85,7 @@ public class CustomItemUseHandler {
         }
     }
 
-    public void checkDoubleJumper(World world, PlayerEntity player, ItemStack usedStack) {
-        // if using a ruby item
-        if (usedStack.isItemEqual(ModItems.RUBY.getDefaultStack())) {
+    public void checkDoubleJumper(World world, PlayerEntity player, Hand hand) {
             // change the charge
             charged = !charged;
             // alert the user
@@ -84,10 +95,15 @@ public class CustomItemUseHandler {
             } else {
                 player.sendMessage(Text.literal("UnCharged!"));
                 player.setGlowing(false);
+
+                // if user is in survival decrement the stack
+                if (!player.isCreative()) {
+                    player.getStackInHand(hand).decrement(1);
+                }
             }
             // toggle the double jumper thread
             toggleDoubleJump(world, player);
-        }
+
     }
 
     public void toggleDoubleJump(World world, PlayerEntity player) {

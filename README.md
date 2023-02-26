@@ -1,24 +1,87 @@
-# Fabric Example Mod
+# Draco Tutorial Mod 
 
-I added 2 Items, and one Block with its associated item so far
+## My first official minecraft mod 
+- written with Fabric API for 1.19.3
 
-- _sapphire's give you experience levels when used_
+- ### Changelog
 
-- _ruby's when used (toggled) place blocks underneath and in front of the player while jumping and falling_
+  - sapphire's give you experience *levels* when consumed
+    - plays a sound with volume and pitch relative to how many Sapphires in your hand! 
+    - levels given will apply next time your experience updates from other sources
+  
+  <br><br>
 
-- _added ruby blocks which do a lot of crazy and harmful things when destroyed but pay off when broken_
+  - added ruby blocks which do a lot of crazy and harmful things when destroyed but pay off when broken.
+  
+    - Bring player to "one" heart, 
+    - set on fire, 
+    - change main hand, 
+    - turn off gravity (toggles, so you **HAVE** to 
+    break another ruby block to undo it), 
+    - makes you glow
+    - sticks 100 arrows in you... yes...
+    - gives you ruby :))
+    - **Generates in the same way as diamond, but more scarcely**
+    
+  <br><br>
+  
+  - Added ruby item
+    - ruby's when used (toggled) place blocks underneath and in front of the player while jumping and falling
+    - create ruby blocks with "charged" ruby - all blocks disappear when ruby becomes uncharged
+    - there is a delay when you jump, and it takes some timing (on purpose) have fun jumping absolutely everywhere!
+    <br>
+    - UNcharges consume one ruby - so you can toggle before losing your last one
+    - VERY good furnace fuel
+    - **Ruby Armor** - better than diamond! Comes with enchants! High enchantability!
+    
+  <br><br>
+  
+  - added **Lovely** enchantment (max level 3)
+    - "silk touch" spawners
+    - when holding the enchanted **Tool**:
+      - regeneration when hit by a mob (not projectiles or explosions they caused)
+      - restore small amount of hunger as well
+    - when using the enchanted item:
+      - spawns heart particles on block break **( not working anyone know why??)**
+      - gives massive regeneration to hurt mobs
+  
+  <br><br>
+  
+  - added **Afk Mine** enchantment (level 1)
+  - **Makes you invisible and catches your fall while mining below y = 30**
+    - ever wanted to afk mine but couldn't because of danger?
+    - now you can - while below y level 30, and you have a pickaxe enchanted with afk mine 
+    *(toggled on)* in your inventory!
+    - Don't go above y level 30 because all blocks are removed when toggled off
+    - much more responsive than the ruby "Double jumper" because this is a safety feature!!
+    However, it is lacking in freedom, only for use in the caves :)
 
-- create ruby blocks when "double jumping" with a "charged" ruby - all blocks disappear when ruby becomes uncharged
+  <br><br>
 
-- todo
-  - add tools and armor
-  - add world generation for ruby block
+  - added stat for sapphires (more to come)!!
+
+<hr>
+
+- ### Todo
+  - make ruby blocks placed with charged ruby only a hollow shell that won't craft anything
+    - get a list of replaced blocks and restore them 
+  - find a way to balance "afk mining" haha
+    - will not restore placed blocks
   - add sapphire to loot chests
+  - add spawn egg recipes
+  - add stats for all added items and features (including toggling special effects like afk mine and lovely silk and regen etc??? ooooo fuuunnn!)
 
-## Setup
+## Setup - Mod Users 
+
+- Download and install 1.19.3 Fabric (or place the mod right into your already prepared modpack / mods folder!)
+- Download the mod from the repo (draco-tutorial-mod.<version>.jar **and sources.jar**)
+- Place .jar files into your mods folder.
+
+
+## Setup - Mod Developers
 
 For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
 
 ## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+[MIT License](./LICENSE)
