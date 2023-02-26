@@ -4,12 +4,16 @@ package com.shadowdraco.tutorial.lib;
 import com.shadowdraco.tutorial.registry.ModEnchantments;
 import net.minecraft.block.BlockState;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
+
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
+
 import net.minecraft.entity.player.PlayerEntity;
 
 import net.minecraft.item.ItemStack;
+
 
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.text.Text;
@@ -30,14 +34,14 @@ public class CustomBlockBreakHandler {
         if (EnchantmentHelper.getLevel(ModEnchantments.LOVELY_ENCHANTMENT, usedStack) > 0) {
 
             if (!world.isClient()) {
-                player.sendMessage(Text.literal("Awwwwweee!"));
+                player.sendMessage(Text.literal("Awwwwweee thank you!"));
 
-                world.addParticle(ParticleTypes.HEART, pos.getX(), pos.getY(), pos.getZ(), 0, 2, 0);
-                
-                // make the player drop the item they just broke if it's a spawner?
-                //if (state.getBlock() == Blocks.SPAWNER) {
-                    player.dropItem(state.getBlock().asItem().getDefaultStack(), true, true);
-                //}
+                world.addParticle(ParticleTypes.HEART, pos.getX(), pos.getY() + 1.0, pos.getZ(), 0.0, 0.0, 0.0);
+
+                // make the player drop the item they just broke if it's a spawner
+                if (state.getBlock() == Blocks.SPAWNER) {
+                    player.dropItem(state.getBlock().asItem().getDefaultStack(), false, true);
+                }
             }
         }
     }

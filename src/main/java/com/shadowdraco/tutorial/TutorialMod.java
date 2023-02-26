@@ -82,7 +82,6 @@ public class TutorialMod implements ModInitializer{
         // On initialization register items
         ModItems.registerItems();
         ModBlocks.registerBlocks();
-        ModBlocks.registerBlocks();
         ModWorldGeneration.generateModWorldGen();
 
         ModEnchantments.registerEnchantments();

@@ -7,14 +7,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.decoration.EndCrystalEntity;
+
 
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+
 
 
 public class LovelyEnchantment extends Enchantment {
@@ -44,16 +44,17 @@ public class LovelyEnchantment extends Enchantment {
     @Override
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {
 
-        // if the user breaks an end crystal it will drop itself.
-        if (target instanceof EndCrystalEntity) {
-            target.dropItem(Items.END_CRYSTAL, 5);
+        //if the user hits a target it will regenerate massively for 5 seconds
+        if (target instanceof LivingEntity) {
+           ((LivingEntity) target).addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 20 * 5, level));
         }
     }
 
     @Override
     public void onUserDamaged(LivingEntity user, Entity attacker, int level) {
-        // add regeneration for half a second ticks with (level) potency
-        user.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 10, level));
+        // add regeneration for one second ticks with (level) potency
+        user.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 20, level));
+        // if the user is attacked they will regenerate, while dealing damage to the attacker
         attacker.damage(DamageSource.player((PlayerEntity) user), level / 2F);
     }
 }
