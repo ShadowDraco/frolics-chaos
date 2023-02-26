@@ -5,13 +5,13 @@
 
 - ### Changelog
 
-  - sapphire's give you experience *levels* when consumed
+  - **sapphire**'s give you experience *levels* when consumed
     - plays a sound with volume and pitch relative to how many Sapphires in your hand! 
-    - levels given will apply next time your experience updates from other sources
+    - levels given will apply next time your experience updates from other sources (don't know what made this happen)
   
   <br><br>
 
-  - added ruby blocks which do a lot of crazy and harmful things when destroyed but pay off when broken.
+  - added **ruby blocks** which do a lot of crazy and harmful things when destroyed but pay off when broken.
   
     - Bring player to "one" heart, 
     - set on fire, 
@@ -25,11 +25,10 @@
     
   <br><br>
   
-  - Added ruby item
+  - Added **ruby gem**
     - ruby's when used (toggled) place blocks underneath and in front of the player while jumping and falling
     - create ruby blocks with "charged" ruby - all blocks disappear when ruby becomes uncharged
     - there is a delay when you jump, and it takes some timing (on purpose) have fun jumping absolutely everywhere!
-    <br>
     - UNcharges consume one ruby - so you can toggle before losing your last one
     - VERY good furnace fuel
     - **Ruby Armor** - better than diamond! Comes with enchants! High enchantability!
@@ -58,18 +57,18 @@
 
   <br><br>
 
-  - added stat for sapphires (more to come)!!
+  - added *stats* for sapphires (more to come)!!
 
 <hr>
 
 - ### Todo
-  - make ruby blocks placed with charged ruby only a hollow shell that won't craft anything
+  - make ruby blocks placed with charged ruby only a hollow shell that won't drop anything
     - get a list of replaced blocks and restore them 
   - find a way to balance "afk mining" haha
     - will not restore placed blocks
   - add sapphire to loot chests
   - add spawn egg recipes
-  - add stats for all added items and features (including toggling special effects like afk mine and lovely silk and regen etc??? ooooo fuuunnn!)
+  - add stats for all added items and features (including toggling special effects like afk mine and lovely silk touch and regen etc??? ooooo fuuunnn!)
 
 ## Setup - Mod Users 
 
