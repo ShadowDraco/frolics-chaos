@@ -50,49 +50,30 @@ public class ModItems {
     // Register all items
     public static void registerItems() {
         System.out.println("\n--DTM Registering Items!---");
-        registerRubyItem();
-        registerRubyBlockItem();
-        registerSapphireItem();
+
+        registerItem("ruby", RUBY, ItemGroups.INGREDIENTS);
+        FuelRegistry.INSTANCE.add(RUBY, 5000); // add ruby as furnace fuel
+
+        registerItem("ruby_block", RUBY_BLOCK_ITEM, ItemGroups.BUILDING_BLOCKS); // register with same name as associated block
+        registerItem("sapphire", SAPPHIRE, ItemGroups.INGREDIENTS);
         registerRubyArmorItems();
     }
 
     // ---------- Item register functions
 
-    // register ruby item
-    static void registerRubyItem() {
+    // For all general item registry
+    static void registerItem(String name, Item item, ItemGroup group) {
         // import Registry and call .register, passing the .ITEM registry, and a new identifier for the item
         // every item has a special             identifier ( modid:itemName )
-        Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, "ruby"), RUBY); // last parameter is the RUBY item.
-        FuelRegistry.INSTANCE.add(RUBY, 5000); // add ruby as furnace fuel
+        Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, name), item); // last parameter is the RUBY item.
         // then modify the item group entries to include this item in the Ingredients item group
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> entries.add(RUBY));
-    }
-    //register sapphire item
-    static void registerSapphireItem() {
-        // register the item and add it to an item group
-        Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, "sapphire"), SAPPHIRE);
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> entries.add(SAPPHIRE));
-    }
-
-    // register ruby BlockItem and give it to a creative tab
-    static void registerRubyBlockItem() {
-        //                                                          the item path is same as it's associated block
-        Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, "ruby_block"), RUBY_BLOCK_ITEM);
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> entries.add(RUBY_BLOCK_ITEM));
+        ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
     }
     static void registerRubyArmorItems() {
 
-        // register the helmet and add it to an item group
-        Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, "ruby_helmet"), RUBY_HELMET);
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(RUBY_HELMET));
-        // register the chest plate
-        Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, "ruby_chestplate"), RUBY_CHESTPLATE);
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(RUBY_CHESTPLATE));
-        // register the leggings
-        Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, "ruby_leggings"), RUBY_LEGGINGS);
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(RUBY_LEGGINGS));
-        // register the boots
-        Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, "ruby_boots"), RUBY_BOOTS);
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(RUBY_BOOTS));
+        registerItem("ruby_helmet", RUBY_HELMET, ItemGroups.COMBAT);
+        registerItem("ruby_chestplate", RUBY_CHESTPLATE, ItemGroups.COMBAT);
+        registerItem("ruby_leggings", RUBY_LEGGINGS, ItemGroups.COMBAT);
+        registerItem("ruby_boots", RUBY_BOOTS, ItemGroups.COMBAT);
     }
 }
