@@ -1,8 +1,10 @@
 package com.shadowdraco.tutorial.lib;
 
 
+import com.shadowdraco.tutorial.registry.ModStats;
 import net.minecraft.block.Block;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
@@ -28,15 +30,11 @@ public class AFKBlocker extends Thread {
     };
     // blocks placed to save the player from falling
     private final ArrayList<BlockPos> BlocksPlaced = new ArrayList<>();
-    private final ArrayList<Blocks> BlocksReplaced = new ArrayList<>();
-
-    // how many blocks have been placed since the rules of "balance" have been checked
-    private int blocksSinceCheck = 0;
+    private final ArrayList<BlockState> BlocksReplaced = new ArrayList<>();
 
     public AFKBlocker(World world, PlayerEntity player) {
         this.world = world;
         this.player = player;
-
     }
 
     public void run() {
@@ -48,6 +46,7 @@ public class AFKBlocker extends Thread {
                         // if the player goes above the height limit force cancel the thread
                         player.sendMessage(Text.literal("You're leaving the caves... "));
                         this.deleteBlocks();
+                        this.restoreBlocks();
                         this.interrupt();
                     }
 
@@ -58,24 +57,52 @@ public class AFKBlocker extends Thread {
 
 
                     if (BadBlocks.contains(world.getBlockState(FrontAndBelow).getBlock())) {
+                        // get the block before replacing
+                        BlocksReplaced.add(world.getBlockState(FrontAndBelow));
+                        // set the block to cobblestone
                         world.setBlockState(FrontAndBelow, Blocks.COBBLESTONE.getDefaultState());
+                        // add tje block position to the list
                         BlocksPlaced.add(FrontAndBelow);
                     }
                     //noinspection BusyWait
                     sleep(100);
 
                 } catch (InterruptedException e) {
-                    throw new RuntimeException("interruppted");
+                    throw new RuntimeException("Stopped Afk Mining");
                 }
             }
 
     }
 
     public void deleteBlocks() {
-        System.out.println("\n\nDeleting blocks\n\n");
-        for (BlockPos block : BlocksPlaced) {
-            world.removeBlock(block, false);
+        System.out.println("\nDeleting blocks");
+
+        // increase the blocks placed stat before deleting all blocks
+        player.increaseStat(ModStats.AFK_BLOCKS_PLACED, BlocksPlaced.size());
+        try {
+            for (BlockPos blockPos : BlocksPlaced) {
+                world.removeBlock(blockPos, false);
+                sleep(5);
+            }
+        } catch (InterruptedException exception) {
+            System.out.println("Could not finish deleting blocks");
         }
         System.out.println("Blocks removed");
+    }
+
+     public void restoreBlocks() {
+        System.out.println("\nRestoring blocks");
+
+        try {
+            int i = 0;
+            for (BlockPos blockPos : BlocksPlaced) {
+                world.setBlockState(blockPos, BlocksReplaced.get(i));
+                i++;
+                sleep(5);
+            }
+        } catch (InterruptedException exception) {
+            System.out.println("Could not finish restoring blocks");
+        }
+        System.out.println("Blocks restored");
     }
 }

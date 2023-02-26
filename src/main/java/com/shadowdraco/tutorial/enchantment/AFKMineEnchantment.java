@@ -69,6 +69,7 @@ public class AFKMineEnchantment extends Enchantment {
         } else {
             System.out.println("Thread interrupted");
             afkBlocker.deleteBlocks();
+            afkBlocker.restoreBlocks();
             afkBlocker.interrupt();
         }
     }
