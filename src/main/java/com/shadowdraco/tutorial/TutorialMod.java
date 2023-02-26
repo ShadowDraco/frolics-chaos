@@ -76,7 +76,7 @@ public class TutorialMod implements ModInitializer{
     // imported from ModInitializer class
     //Runs when mod is initialized
     public void onInitialize() {
-        System.out.println("--\n\nTutorial mod is running!---\n\n");
+        System.out.println("--\n\nDraco Tutorial mod is running!---\n\n");
 
         // On initialization register items
         ModItems.registerItems();
