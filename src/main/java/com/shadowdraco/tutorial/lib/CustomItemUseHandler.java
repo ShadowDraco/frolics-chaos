@@ -37,55 +37,63 @@ public class CustomItemUseHandler {
     public void checkAfkBlocker(World world, PlayerEntity player, ItemStack usedStack) {
         if (EnchantmentHelper.getLevel(ModEnchantments.AFK_MINE_ENCHANTMENT, usedStack) > 0) {
 
-            if (!AfkBlocking) {
-                if (player.getY() < 30) {
+            AfkBlocking = ! AfkBlocking;
 
-                    System.out.println("AfkBlocking Started");
-                    afkBlocker = new AFKBlocker(world, player);
-                    afkBlocker.start();
+            if (player.getY() < 30) {
 
+                if (AfkBlocking) {
                     player.sendMessage(Text.literal("Afk Mining"));
                     player.setInvisible(true);
 
                 } else {
-                    player.sendMessage(Text.literal("Head further into the caves first!"));
+                    player.setInvisible(false);
+                    player.sendMessage(Text.literal("Welcome back!"));
+
                 }
+
+                toggleAfkBlocking(world, player);
+
             } else {
-
-                System.out.println("Thread interrupted");
-                afkBlocker.deleteBlocks();
-                afkBlocker.interrupt();
-
-                player.setInvisible(false);
-                player.sendMessage(Text.literal("Welcome back!"));
+                player.sendMessage(Text.literal("Head further into the caves first!"));
             }
+
         }
     }
 
+    public void toggleAfkBlocking(World world, PlayerEntity player) {
+        if (AfkBlocking) {
+            System.out.println("AfkBlocking Started");
+            afkBlocker = new AFKBlocker(world, player);
+            afkBlocker.start();
+        } else {
+            System.out.println("Thread interrupted");
+            afkBlocker.deleteBlocks();
+            afkBlocker.interrupt();
+        }
+    }
 
-
-    public void checkDoubleJumper(World world, PlayerEntity user, ItemStack usedStack) {
+    public void checkDoubleJumper(World world, PlayerEntity player, ItemStack usedStack) {
         // if using a ruby item
         if (usedStack.isItemEqual(ModItems.RUBY.getDefaultStack())) {
             // change the charge
             charged = !charged;
             // alert the user
             if (charged) {
-                user.sendMessage(Text.literal("Charged!"));
-                user.setGlowing(true);
+                player.sendMessage(Text.literal("Charged!"));
+                player.setGlowing(true);
             } else {
-                user.sendMessage(Text.literal("UnCharged!"));
-                user.setGlowing(false);
+                player.sendMessage(Text.literal("UnCharged!"));
+                player.setGlowing(false);
             }
             // toggle the double jumper thread
-            toggleDoubleJump(world, user);
+            toggleDoubleJump(world, player);
         }
     }
 
-    public void toggleDoubleJump(World world, PlayerEntity user) {
+    public void toggleDoubleJump(World world, PlayerEntity player) {
         if (charged) {
             System.out.println("Thread started");
-            doubleJumper = new DoubleJumper(world, user);
+            doubleJumper = new DoubleJumper(world, player);
             doubleJumper.start();
         } else {
             System.out.println("Thread interrupted");

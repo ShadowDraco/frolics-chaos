@@ -14,7 +14,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 
 import net.minecraft.item.ItemStack;
-
+import net.minecraft.item.Items;
 
 
 public class LovelyEnchantment extends Enchantment {
@@ -54,6 +54,7 @@ public class LovelyEnchantment extends Enchantment {
     public void onUserDamaged(LivingEntity user, Entity attacker, int level) {
         // add regeneration for one second ticks with (level) potency
         user.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 20, level));
+        user.eatFood(user.getWorld(), Items.APPLE.getDefaultStack());
         // if the user is attacked they will regenerate, while dealing damage to the attacker
         attacker.damage(DamageSource.player((PlayerEntity) user), level / 2F);
     }

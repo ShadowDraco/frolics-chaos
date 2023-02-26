@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -38,6 +39,13 @@ public class AFKBlocker extends Thread {
 
             while (player.getMovementSpeed() > 0) {
                 try {
+
+                    if (player.getPos().getY() > 30) {
+                        // if the player goes above the height limit force cancel the thread
+                        player.sendMessage(Text.literal("You're leaving the caves... "));
+                        this.deleteBlocks();
+                        this.interrupt();
+                    }
 
                     // get block below player
                     BlockPos playerPos = new BlockPos(player.getPos().getX(), player.getPos().getY() - 1, player.getPos().getZ());

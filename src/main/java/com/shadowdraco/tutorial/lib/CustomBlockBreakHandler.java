@@ -35,12 +35,12 @@ public class CustomBlockBreakHandler {
         if (EnchantmentHelper.getLevel(ModEnchantments.LOVELY_ENCHANTMENT, usedStack) > 0) {
 
             if (!world.isClient()) {
-                player.sendMessage(Text.literal("Awwwwweee thank you!"));
 
-                world.addParticle(ParticleTypes.HEART, pos.getX(), pos.getY() + 1.0, pos.getZ(), 0.0, 0.0, 0.0);
+                world.addParticle(ParticleTypes.HEART, pos.getX(), pos.getY() + 1.0, pos.getZ(), 0.0, 1.0, 0.0);
 
                 // make the player drop the item they just broke if it's a spawner
                 if (state.getBlock() == Blocks.SPAWNER) {
+                    player.sendMessage(Text.literal("Awwwwweee thank you!"));
                     player.dropItem(Items.SPAWNER.getDefaultStack(), false, true);
                 }
             }
