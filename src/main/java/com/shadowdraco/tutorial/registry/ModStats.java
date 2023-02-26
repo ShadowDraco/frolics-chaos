@@ -22,7 +22,7 @@ public class ModStats {
 
         System.out.println("\n--DTM Registering Statistics!---");
         registerStat("consume_sapphire", CONSUME_SAPPHIRE, StatFormatter.DEFAULT);
-        registerStat("consume_sapphire", CONSUME_RUBY, StatFormatter.DEFAULT);
+        registerStat("consume_ruby", CONSUME_RUBY, StatFormatter.DEFAULT);
     }
 
     public static void registerStat(String name, Identifier ID, StatFormatter type) {

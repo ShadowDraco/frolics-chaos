@@ -15,20 +15,23 @@ import net.minecraft.world.World;
 
 public class RubyItem extends Item{
 
+    private static Boolean charged = false;
+    private static DoubleJumper doubleJumper;
+
     public RubyItem() {
 
         super(new FabricItemSettings().rarity(Rarity.RARE).maxCount(32));
     }
 
-    public static void useRuby(World world, PlayerEntity player, Hand hand, DoubleJumper doubleJumper, Boolean charged) {
-        checkDoubleJumper(player, hand, charged);
+    public static void useRuby(World world, PlayerEntity player, Hand hand) {
+        checkDoubleJumper(player, hand);
         // toggle the double jumper thread
-        toggleDoubleJumper(world, player, doubleJumper, charged);
+        toggleDoubleJumper(world, player);
 
     }
 
     // see if a player has used a ruby and toggle the double jumper
-    static void checkDoubleJumper( PlayerEntity player, Hand hand, Boolean charged) {
+    static void checkDoubleJumper( PlayerEntity player, Hand hand) {
         // change the charge
         charged = !charged;
         // alert the user
@@ -50,7 +53,7 @@ public class RubyItem extends Item{
 
     }
 
-    static void toggleDoubleJumper(World world, PlayerEntity player, DoubleJumper doubleJumper, Boolean charged) {
+    static void toggleDoubleJumper(World world, PlayerEntity player) {
         if (charged) {
             System.out.println("Thread started");
             doubleJumper = new DoubleJumper(world, player);

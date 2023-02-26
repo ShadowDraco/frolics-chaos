@@ -13,6 +13,9 @@ import net.minecraft.world.World;
 
 
 public class AFKMineEnchantment extends Enchantment {
+
+    private static Boolean AfkBlocking = false;
+    private static AFKBlocker afkBlocker;
     public AFKMineEnchantment() {
 
         // very rare enchantment for main hand tools
@@ -35,7 +38,7 @@ public class AFKMineEnchantment extends Enchantment {
     }
 
     // see if an item with this enchantment has enabled an afk blocker thread
-    public static void checkAfkBlocker(World world, PlayerEntity player, AFKBlocker afkBlocker, Boolean AfkBlocking) {
+    public static void checkAfkBlocker(World world, PlayerEntity player) {
 
             AfkBlocking = ! AfkBlocking;
 
@@ -51,14 +54,14 @@ public class AFKMineEnchantment extends Enchantment {
 
                 }
 
-                toggleAfkBlocking(world, player, afkBlocker, AfkBlocking);
+                toggleAfkBlocking(world, player);
 
             } else {
                 player.sendMessage(Text.literal("Head further into the caves first!"));
             }
     }
 
-    static void toggleAfkBlocking(World world, PlayerEntity player, AFKBlocker afkBlocker, Boolean AfkBlocking) {
+    static void toggleAfkBlocking(World world, PlayerEntity player) {
         if (AfkBlocking) {
             System.out.println("AfkBlocking Started");
             afkBlocker = new AFKBlocker(world, player);

@@ -16,10 +16,6 @@ import net.minecraft.world.World;
 
 public class CustomItemUseHandler {
 
-    public static Boolean AfkBlocking = false;
-    public static Boolean charged = false;
-    AFKBlocker afkBlocker;
-    DoubleJumper doubleJumper;
     public CustomItemUseHandler() {
         System.out.println("\n--DTM created custom item use handler !---");
     }
@@ -34,7 +30,7 @@ public class CustomItemUseHandler {
             // check if a ruby is used
             if (usedStack.getItem() == ModItems.RUBY) {
                 // keep functions related to items and enchantments in their own places but handle USING items here
-                RubyItem.useRuby(world, player, hand, doubleJumper, charged);
+                RubyItem.useRuby(world, player, hand);
 
                 return TypedActionResult.success(usedStack);
             }
@@ -46,7 +42,7 @@ public class CustomItemUseHandler {
 
             if (EnchantmentHelper.getLevel(ModEnchantments.AFK_MINE_ENCHANTMENT, usedStack) > 0) {
                 // check if an item with afk mine is used
-                AFKMineEnchantment.checkAfkBlocker(world, player, afkBlocker, AfkBlocking);
+                AFKMineEnchantment.checkAfkBlocker(world, player);
                 return TypedActionResult.success(usedStack);
             }
 

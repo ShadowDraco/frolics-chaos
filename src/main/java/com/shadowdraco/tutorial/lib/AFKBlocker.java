@@ -20,7 +20,7 @@ public class AFKBlocker extends Thread {
     private final ArrayList<Block> BadBlocks = new ArrayList<>() {
         {
             add(Blocks.CAVE_AIR);
-            //add(Blocks.AIR);
+            add(Blocks.AIR);
             add(Blocks.VOID_AIR);
             add(Blocks.WATER);
             add(Blocks.LAVA);
@@ -28,6 +28,10 @@ public class AFKBlocker extends Thread {
     };
     // blocks placed to save the player from falling
     private final ArrayList<BlockPos> BlocksPlaced = new ArrayList<>();
+    private final ArrayList<Blocks> BlocksReplaced = new ArrayList<>();
+
+    // how many blocks have been placed since the rules of "balance" have been checked
+    private int blocksSinceCheck = 0;
 
     public AFKBlocker(World world, PlayerEntity player) {
         this.world = world;
