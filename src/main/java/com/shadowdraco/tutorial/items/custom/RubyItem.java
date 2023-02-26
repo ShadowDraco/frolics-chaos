@@ -64,5 +64,4 @@ public class RubyItem extends Item{
             doubleJumper.interrupt();
         }
     }
-
 }

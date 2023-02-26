@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GTG",
+    "TRT",
+    "GTG"
+  ],
+  "key": {
+    "R": {
+      "item": "draco-tutorial-mod:ruby"
+    },
+    "G": {
+      "item": "minecraft:gold_block"
+    },
+    "T": {
+      "item": "minecraft:tnt"
+    }
+  },
+  "result": {
+    "item":"minecraft:creeper_spawn_egg",
+    "count": 1
+  }
+}

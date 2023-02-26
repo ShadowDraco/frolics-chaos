@@ -5,9 +5,12 @@
 
 - ### Changelog
 
+- ### Fixed item use handler overriding normal minecraft item uses.
+
   - **sapphire**'s give you experience *levels* when consumed
     - plays a sound with volume and pitch relative to how many Sapphires in your hand! 
     - levels given will apply next time your experience updates from other sources (don't know what made this happen)
+    only spawn in treasure chests **Maybe...**
   
   <br><br>
 
@@ -61,11 +64,15 @@
 
   - added *stats* for sapphires, rubies, silk-touched spawners, etc (more to come)!!
 
+  <br><br>
+
+  - added creeper spawn egg recipe
+
 <hr>
 
 - ### Todo
-  - add sapphire to loot chests
-  - add spawn egg recipes
+  - add blocks for mob drops to create more recipes like blaze block
+  - add more spawn egg recipes 
 
 ## Setup - Mod Users 
 

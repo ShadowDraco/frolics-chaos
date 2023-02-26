@@ -25,13 +25,10 @@ public class SapphireItem extends Item {
     }
 
     // Override the Item method to give it MY custom function
-    public static void useSapphire(World world, PlayerEntity player, Hand hand) {
+    public static void useSapphire(World ignoredWorld, PlayerEntity player, Hand hand) {
         // Volume is based on the amount of items held
         float volume = (player.getStackInHand(hand).getCount() / 5.0F) + 1.0F;
         float pitch =  (player.getStackInHand(hand).getCount()) + 1.0F;
-
-        // If this is being called on server side
-        if (!world.isClient) {
 
             //item is not in off-hand
             if (hand == Hand.MAIN_HAND) {
@@ -50,7 +47,5 @@ public class SapphireItem extends Item {
                     player.getStackInHand(hand).decrement(1);
                 }
             }
-
-        }
     }
 }
