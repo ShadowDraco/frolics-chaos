@@ -20,7 +20,7 @@ public class AFKBlocker extends Thread {
     private final ArrayList<Block> BadBlocks = new ArrayList<>() {
         {
             add(Blocks.CAVE_AIR);
-            add(Blocks.AIR);
+            //add(Blocks.AIR);
             add(Blocks.VOID_AIR);
             add(Blocks.WATER);
             add(Blocks.LAVA);

@@ -14,20 +14,23 @@ public class ModStats {
 
 
     // a custom statistic for the sapphire item
-    public static final Identifier INTERACT_WITH_SAPPHIRE = new Identifier(TutorialMod.MOD_ID, "interact_with_sapphire");
+    public static final Identifier CONSUME_SAPPHIRE = new Identifier(TutorialMod.MOD_ID, "consume_sapphire");
+    public static final Identifier CONSUME_RUBY = new Identifier(TutorialMod.MOD_ID, "consume_ruby");
 
     // register all the stats
     public static void registerStats() {
 
         System.out.println("\n--DTM Registering Statistics!---");
-        registerSapphireStat();
+        registerStat("consume_sapphire", CONSUME_SAPPHIRE, StatFormatter.DEFAULT);
+        registerStat("consume_sapphire", CONSUME_RUBY, StatFormatter.DEFAULT);
     }
 
-    // register sapphire stat
-    static void registerSapphireStat() {
+    public static void registerStat(String name, Identifier ID, StatFormatter type) {
         // register a new statistic for the sapphire
-        Registry.register(Registries.CUSTOM_STAT, "interact_with_sapphire", INTERACT_WITH_SAPPHIRE);
+        Registry.register(Registries.CUSTOM_STAT, name, ID);
         // Display the statistic with a default counter
-        Stats.CUSTOM.getOrCreateStat(INTERACT_WITH_SAPPHIRE, StatFormatter.DEFAULT);
+        Stats.CUSTOM.getOrCreateStat(ID, type);
     }
+
+
 }

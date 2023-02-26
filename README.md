@@ -57,7 +57,7 @@
 
   <br><br>
 
-  - added *stats* for sapphires (more to come)!!
+  - added *stats* for sapphires and rubies (more to come)!!
 
 <hr>
 

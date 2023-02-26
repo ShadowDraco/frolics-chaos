@@ -43,7 +43,7 @@ public class SapphireItem extends Item {
                 // give the player one level
                 player.experienceLevel++;
                 // increment the sapphire stat when used
-                player.incrementStat(ModStats.INTERACT_WITH_SAPPHIRE);
+                player.incrementStat(ModStats.CONSUME_SAPPHIRE);
 
                 // if player is in survival decrement the stack
                 if (!player.isCreative()) {
