@@ -4,6 +4,8 @@ package com.shadowdraco.tutorial.lib;
 import com.shadowdraco.tutorial.registry.ModBlocks;
 
 
+import com.shadowdraco.tutorial.registry.ModStats;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 
@@ -19,6 +21,7 @@ public class DoubleJumper extends Thread {
     private final PlayerEntity player;
 
     private final ArrayList<BlockPos> BlocksPlaced = new ArrayList<>();
+    private final ArrayList<BlockState> BlocksReplaced = new ArrayList<>();
 
     public DoubleJumper(World world, PlayerEntity player) {
         this.world = world;
@@ -44,13 +47,20 @@ public class DoubleJumper extends Thread {
                             BlockPos middlePos = playerPos.offset(player.getMovementDirection(), 1);
                             BlockPos frontPos = playerPos.offset(player.getMovementDirection(), 2);
 
-                            world.setBlockState(playerPos, ModBlocks.RUBY_BLOCK.getDefaultState());
-                            world.setBlockState(middlePos, ModBlocks.RUBY_BLOCK.getDefaultState());
-                            world.setBlockState(frontPos, ModBlocks.RUBY_BLOCK.getDefaultState());
+                            // get the block before replacing
+                            BlocksReplaced.add(world.getBlockState(playerPos));
+                            BlocksReplaced.add(world.getBlockState(middlePos));
+                            BlocksReplaced.add(world.getBlockState(frontPos));
+
+                            world.setBlockState(playerPos, ModBlocks.HOLLOW_RUBY_BLOCK.getDefaultState());
+                            world.setBlockState(middlePos, ModBlocks.HOLLOW_RUBY_BLOCK.getDefaultState());
+                            world.setBlockState(frontPos, ModBlocks.HOLLOW_RUBY_BLOCK.getDefaultState());
 
                             BlocksPlaced.add(playerPos);
                             BlocksPlaced.add(middlePos);
                             BlocksPlaced.add(frontPos);
+
+                            player.incrementStat(ModStats.DOUBLE_JUMPS);
 
                         }
                     }
@@ -70,5 +80,22 @@ public class DoubleJumper extends Thread {
             world.removeBlock(block, false);
         }
         System.out.println("Blocks removed");
+
+        this.restoreBlocks();
+    }
+
+    public void restoreBlocks() {
+        System.out.println("Restoring blocks");
+
+        try {
+            int i = 0;
+            for (BlockPos blockPos : BlocksPlaced) {
+                world.setBlockState(blockPos, BlocksReplaced.get(i));
+                i++;
+            }
+        } catch (Error error) {
+            System.out.println("Could not finish restoring blocks");
+        }
+        System.out.println("Blocks restored");
     }
 }

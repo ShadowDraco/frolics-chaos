@@ -1,12 +1,17 @@
 {
   "item.draco-tutorial-mod.ruby": "Ruby Gem",
-  "block.draco-tutorial-mod.ruby_block": "Ruby Block",
   "item.draco-tutorial-mod.ruby_helmet": "Ruby Helmet",
   "item.draco-tutorial-mod.ruby_chestplate": "Ruby Chestplate",
   "item.draco-tutorial-mod.ruby_leggings": "Ruby Leggings",
   "item.draco-tutorial-mod.ruby_boots": "Ruby Boots",
   "item.draco-tutorial-mod.sapphire": "Sapphire Gem",
-  "stat.draco-tutorial-mod.interact_with_sapphire": "Sapphire Gems consumed...",
+  "block.draco-tutorial-mod.ruby_block": "Ruby Block",
+  "block.draco-tutorial-mod.hollow_ruby_block": "Hollow Ruby Block",
   "enchantment.draco-tutorial-mod.lovely": "Lovely",
-  "enchantment.draco-tutorial-mod.afk_mine": "Afk Mine"
+  "enchantment.draco-tutorial-mod.afk_mine": "Afk Mine",
+  "stat.draco-tutorial-mod.consume_sapphire": "Sapphire Gems consumed...",
+  "stat.draco-tutorial-mod.consume_ruby": "Ruby Gems consumed...",
+  "stat.draco-tutorial-mod.spawners_silk_touched": "Spawners silk touched",
+  "stat.draco-tutorial-mod.afk_blocks_placed": "Blocks Placed Afk Mining",
+  "stat.draco-tutorial-mod.double_jumps": "Times Double Jumped"
 }

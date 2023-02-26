@@ -2,6 +2,7 @@ package com.shadowdraco.tutorial.lib;
 
 
 import com.shadowdraco.tutorial.registry.ModEnchantments;
+import com.shadowdraco.tutorial.registry.ModStats;
 import net.minecraft.block.BlockState;
 
 import net.minecraft.block.Blocks;
@@ -42,6 +43,7 @@ public class CustomBlockBreakHandler {
                 if (state.getBlock() == Blocks.SPAWNER) {
                     player.sendMessage(Text.literal("Awwwwweee thank you!"));
                     player.dropItem(Items.SPAWNER.getDefaultStack(), false, true);
+                    player.incrementStat(ModStats.SPAWNERS_SILK_TOUCHED);
                 }
             }
         }

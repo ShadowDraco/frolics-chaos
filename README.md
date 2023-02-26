@@ -29,6 +29,7 @@
     - ruby's when used (toggled) place blocks underneath and in front of the player while jumping and falling
     - create ruby blocks with "charged" ruby - all blocks disappear when ruby becomes uncharged
     - there is a delay when you jump, and it takes some timing (on purpose) have fun jumping absolutely everywhere!
+    - places a hollow shell that will not craft more rubies
     - UNcharges consume one ruby - so you can toggle before losing your last one
     - VERY good furnace fuel
     - **Ruby Armor** - better than diamond! Comes with enchants! High enchantability!
@@ -43,6 +44,7 @@
     - when using the enchanted item:
       - spawns heart particles on block break **( not working anyone know why??)**
       - gives massive regeneration to hurt mobs
+    - Saves you from the wrath of Ruby!
   
   <br><br>
   
@@ -57,18 +59,13 @@
 
   <br><br>
 
-  - added *stats* for sapphires and rubies (more to come)!!
+  - added *stats* for sapphires and rubies silk-touched spawners (more to come)!!
 
 <hr>
 
 - ### Todo
-  - make ruby blocks placed with charged ruby only a hollow shell that won't drop anything
-    - get a list of replaced blocks and restore them 
-  - find a way to balance "afk mining" haha
-    - will not restore placed blocks
   - add sapphire to loot chests
   - add spawn egg recipes
-  - add stats for all added items and features (including toggling special effects like afk mine and lovely silk touch and regen etc??? ooooo fuuunnn!)
 
 ## Setup - Mod Users 
 

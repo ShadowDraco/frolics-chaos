@@ -46,7 +46,6 @@ public class AFKBlocker extends Thread {
                         // if the player goes above the height limit force cancel the thread
                         player.sendMessage(Text.literal("You're leaving the caves... "));
                         this.deleteBlocks();
-                        this.restoreBlocks();
                         this.interrupt();
                     }
 
@@ -75,32 +74,32 @@ public class AFKBlocker extends Thread {
     }
 
     public void deleteBlocks() {
-        System.out.println("\nDeleting blocks");
+        System.out.println("Deleting blocks");
 
         // increase the blocks placed stat before deleting all blocks
         player.increaseStat(ModStats.AFK_BLOCKS_PLACED, BlocksPlaced.size());
         try {
             for (BlockPos blockPos : BlocksPlaced) {
                 world.removeBlock(blockPos, false);
-                sleep(5);
             }
-        } catch (InterruptedException exception) {
+        } catch (Error error) {
             System.out.println("Could not finish deleting blocks");
         }
         System.out.println("Blocks removed");
+
+        this.restoreBlocks();
     }
 
      public void restoreBlocks() {
-        System.out.println("\nRestoring blocks");
+        System.out.println("Restoring blocks");
 
         try {
             int i = 0;
             for (BlockPos blockPos : BlocksPlaced) {
                 world.setBlockState(blockPos, BlocksReplaced.get(i));
                 i++;
-                sleep(5);
             }
-        } catch (InterruptedException exception) {
+        } catch (Error error) {
             System.out.println("Could not finish restoring blocks");
         }
         System.out.println("Blocks restored");
