@@ -25,7 +25,7 @@ public class RubyArmorMaterial implements ArmorMaterial {
 
     @Override
     public int getEnchantability() {
-        return 60;
+        return 90;
     }
 
     @Override

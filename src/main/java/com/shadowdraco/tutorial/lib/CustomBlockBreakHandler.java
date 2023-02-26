@@ -15,6 +15,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 
 
+import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
@@ -26,7 +27,7 @@ public class CustomBlockBreakHandler {
         System.out.println("\n--DTM created custom block break handler !---");
     }
 
-    public void handleCustomBlockBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity blockEntity) {
+    public void handleCustomBlockBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity ignoredBlockEntity) {
 
         // get the item that is equipped in the player's hand
         ItemStack usedStack =  player.getEquippedStack(EquipmentSlot.MAINHAND);
@@ -40,7 +41,7 @@ public class CustomBlockBreakHandler {
 
                 // make the player drop the item they just broke if it's a spawner
                 if (state.getBlock() == Blocks.SPAWNER) {
-                    player.dropItem(state.getBlock().asItem().getDefaultStack(), false, true);
+                    player.dropItem(Items.SPAWNER.getDefaultStack(), false, true);
                 }
             }
         }

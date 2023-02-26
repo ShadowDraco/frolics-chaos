@@ -2,7 +2,7 @@
 package com.shadowdraco.tutorial;
 
 // import custom registry classes for the mod
-import com.shadowdraco.tutorial.lib.CustomBlockBreakHandler;
+import com.shadowdraco.tutorial.lib.ModCustomHandlers;
 import com.shadowdraco.tutorial.registry.ModBlocks;
 import com.shadowdraco.tutorial.registry.ModEnchantments;
 import com.shadowdraco.tutorial.registry.ModItems;
@@ -10,7 +10,7 @@ import com.shadowdraco.tutorial.registry.ModStats;
 
 import com.shadowdraco.tutorial.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer; // imported as an implement
-import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+
 
 /*
     // The gradlew.properties maven_group mus match the project structure after ./java
@@ -71,7 +71,6 @@ public class TutorialMod implements ModInitializer{
 
     // Easily get the exact mod id in the future!
     public static final String MOD_ID = "draco-tutorial-mod";
-    public static CustomBlockBreakHandler customBlockBreakHandler = new CustomBlockBreakHandler();
 
     @Override
     // imported from ModInitializer class
@@ -86,7 +85,7 @@ public class TutorialMod implements ModInitializer{
 
         ModEnchantments.registerEnchantments();
 
-        PlayerBlockBreakEvents.AFTER.register(((world, player, pos, state, blockEntity) -> customBlockBreakHandler.handleCustomBlockBreak(world, player, pos, state, blockEntity)));
+        ModCustomHandlers.startHandlers();
 
         ModStats.registerStats();
     }
