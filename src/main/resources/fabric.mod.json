@@ -3,14 +3,21 @@
   "id": "draco-tutorial-mod",
   "version": "${version}",
 
-  "name": "Techno Tutorial Mod",
-  "description": "This is a tutorial by TechnoVision!",
+  "name": "Draco Mod",
+  "description": "You won't believe what has happened",
   "authors": [
     "Ethan Storm"
   ],
   "contact": {
     "homepage": "",
-    "sources": ""
+    "sources": {
+      "Youtubers": {
+        "Fabric Docs": "fabricmc.net",
+        "Technovision":  "https://www.youtube.com/watch?v=e37IMIwB5BE&t=583s",
+        "Kaupenjoe":  "https://www.youtube.com/@ModdingByKaupenjoe"
+
+      }
+    }
   },
 
   "license": "CC0-1.0",
