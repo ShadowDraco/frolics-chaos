@@ -9,6 +9,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -24,6 +25,13 @@ public class AFKBlocker extends Thread {
             add(Blocks.CAVE_AIR);
             add(Blocks.AIR);
             add(Blocks.VOID_AIR);
+            add(Blocks.WATER);
+            add(Blocks.LAVA);
+        }
+    };
+    // list of blocks for the other positions around the player
+    private final ArrayList<Block> BadBadBlocks = new ArrayList<>() {
+        {
             add(Blocks.WATER);
             add(Blocks.LAVA);
         }
@@ -53,6 +61,16 @@ public class AFKBlocker extends Thread {
                     BlockPos playerPos = new BlockPos(player.getPos().getX(), player.getPos().getY() - 1, player.getPos().getZ());
                     // block in front of player and right below
                     BlockPos FrontAndBelow = playerPos.offset(player.getMovementDirection(), 1);
+                    // opposite of front and below
+                    BlockPos FrontAndAbove = playerPos.offset(Direction.Axis.Y, 3);
+
+                    // block all the way around the player (only for water and lava
+                    BlockPos FrontAndBottomLeft = FrontAndBelow.offset(Direction.Axis.Y, 1).offset(Direction.Axis.X, -1);
+                    BlockPos FrontAndBottomRight = FrontAndBelow.offset(Direction.Axis.Y, 1).offset(Direction.Axis.X, 1);
+                    BlockPos FrontAndTopLeft = FrontAndAbove.offset(Direction.Axis.Y, -1).offset(Direction.Axis.X, -1);
+                    BlockPos FrontAndTopRight = FrontAndAbove.offset(Direction.Axis.Y, -1).offset(Direction.Axis.X, 1);
+
+                    BlockPos[] BadBadPositions = {FrontAndAbove, FrontAndTopRight, FrontAndTopLeft, FrontAndBottomRight, FrontAndBottomLeft};
 
 
                     if (BadBlocks.contains(world.getBlockState(FrontAndBelow).getBlock())) {
@@ -60,8 +78,19 @@ public class AFKBlocker extends Thread {
                         BlocksReplaced.add(world.getBlockState(FrontAndBelow));
                         // set the block to cobblestone
                         world.setBlockState(FrontAndBelow, Blocks.COBBLESTONE.getDefaultState());
-                        // add tje block position to the list
+                        // add the block position to the list
                         BlocksPlaced.add(FrontAndBelow);
+                    }
+
+                    for (int i = 0; i < 5; i ++) {
+                        if (BadBadBlocks.contains(world.getBlockState(BadBadPositions[i]).getBlock())) {
+                            // get the block before replacing it
+                            BlocksReplaced.add(world.getBlockState(BadBadPositions[i]));
+                            // set the block to cobblestone
+                            world.setBlockState(BadBadPositions[i], Blocks.COBBLESTONE.getDefaultState());
+                            // add the block position to the list
+                            BlocksPlaced.add(BadBadPositions[i]);
+                        }
                     }
                     //noinspection BusyWait
                     sleep(100);
