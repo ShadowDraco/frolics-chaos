@@ -66,7 +66,7 @@
 
   <br><br>
 
-  - added creeper spawn egg recipe
+  - added creeper and skeleton spawn egg recipe
 
 <hr>
 

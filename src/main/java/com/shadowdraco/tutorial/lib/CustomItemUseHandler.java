@@ -5,6 +5,7 @@ import com.shadowdraco.tutorial.items.custom.RubyItem;
 import com.shadowdraco.tutorial.items.custom.SapphireItem;
 import com.shadowdraco.tutorial.registry.ModEnchantments;
 import com.shadowdraco.tutorial.registry.ModItems;
+
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
 
@@ -34,7 +35,7 @@ public class CustomItemUseHandler {
         ItemStack usedStack = player.getEquippedStack(EquipmentSlot.MAINHAND);
 
         // if the item is not one that I WANT to use the custom item handler then pass to the normal minecraft handler
-        if (ModdedItems.contains(usedStack)) {
+        if (ModdedItems.contains(usedStack) || EnchantmentHelper.getLevel(ModEnchantments.AFK_MINE_ENCHANTMENT, usedStack) > 0) {
             if (!world.isClient) {
                 // check specific items and skip the rest then check variable items
 

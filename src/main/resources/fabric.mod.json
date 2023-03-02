@@ -10,14 +10,7 @@
   ],
   "contact": {
     "homepage": "",
-    "sources": {
-      "Youtubers": {
-        "Fabric Docs": "fabricmc.net",
-        "Technovision":  "https://www.youtube.com/watch?v=e37IMIwB5BE&t=583s",
-        "Kaupenjoe":  "https://www.youtube.com/@ModdingByKaupenjoe"
-
-      }
-    }
+    "sources": ""
   },
 
   "license": "CC0-1.0",
