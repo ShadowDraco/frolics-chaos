@@ -6,6 +6,7 @@
 - ### Changelog
 
 - ### Fixed item use handler overriding normal minecraft item uses.
+- ### Fixed afk enchantment not activating in 1.8.1
 
   - **sapphire**'s give you experience *levels* when consumed
     - plays a sound with volume and pitch relative to how many Sapphires in your hand! 
@@ -59,7 +60,7 @@
     - much more responsive than the ruby "Double jumper" because this is a safety feature!!
     However, it is lacking in freedom, only for use in the caves :)
     - Remember to toggle off your AFK mine enchant when not in use to delete the blocks
-
+    - now saves from lava and water above and around the player
   <br><br>
 
   - added *stats* for sapphires, rubies, silk-touched spawners, etc (more to come)!!
