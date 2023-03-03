@@ -1,4 +1,4 @@
-package com.shadowdraco.tutorial.items.custom;
+package com.shadowdraco.tutorial.items.custom.ruby;
 
 import com.shadowdraco.tutorial.lib.DoubleJumper;
 import com.shadowdraco.tutorial.registry.ModStats;

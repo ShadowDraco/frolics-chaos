@@ -1,4 +1,4 @@
-package com.shadowdraco.tutorial.items.custom;
+package com.shadowdraco.tutorial.items.custom.ruby.armor;
 
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;

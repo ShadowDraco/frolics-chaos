@@ -3,8 +3,14 @@ package com.shadowdraco.tutorial.registry;
 import com.shadowdraco.tutorial.TutorialMod; // import Main
 
 
-import com.shadowdraco.tutorial.items.RubyArmorMaterial;
+import com.shadowdraco.tutorial.items.custom.ruby.armor.RubyArmorMaterial;
 import com.shadowdraco.tutorial.items.custom.*;
+import com.shadowdraco.tutorial.items.custom.ruby.RubyItem;
+import com.shadowdraco.tutorial.items.custom.ruby.armor.RubyBootsItem;
+import com.shadowdraco.tutorial.items.custom.ruby.armor.RubyChestplateItem;
+import com.shadowdraco.tutorial.items.custom.ruby.armor.RubyHelmetItem;
+import com.shadowdraco.tutorial.items.custom.ruby.armor.RubyLeggingsItem;
+import com.shadowdraco.tutorial.items.custom.ruby.tools.RubyPickaxeItem;
 import net.minecraft.item.*;
 // Import ItemGroupEvents to change item properties and instance a new item
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -40,23 +46,21 @@ public class ModItems {
 
     // create an armor material
     public static final RubyArmorMaterial RUBY_ARMOR_MATERIAL = new RubyArmorMaterial();
-    // create armor from that material
+    // create armor from the material
     public static final RubyHelmetItem RUBY_HELMET = new RubyHelmetItem(RUBY_ARMOR_MATERIAL);
     public static final RubyChestplateItem RUBY_CHESTPLATE = new RubyChestplateItem(RUBY_ARMOR_MATERIAL);
     public static final RubyLeggingsItem RUBY_LEGGINGS = new RubyLeggingsItem(RUBY_ARMOR_MATERIAL);
     public static final RubyBootsItem RUBY_BOOTS = new RubyBootsItem(RUBY_ARMOR_MATERIAL);
 
+    // the Tool Material is an instance in its own class, referenced in the pickaxe item's constructor
+    public static final RubyPickaxeItem RUBY_PICKAXE_ITEM = new RubyPickaxeItem();
 
     // Register all items
     public static void registerItems() {
         System.out.println("\n--DTM Registering Items!---");
 
-        registerItem("ruby", RUBY, ItemGroups.INGREDIENTS);
-        FuelRegistry.INSTANCE.add(RUBY, 5000); // add ruby as furnace fuel
-
-        registerItem("ruby_block", RUBY_BLOCK_ITEM, ItemGroups.BUILDING_BLOCKS); // register with same name as associated block
         registerItem("sapphire", SAPPHIRE, ItemGroups.INGREDIENTS);
-        registerRubyArmorItems();
+        registerRubyItems();
     }
 
     // ---------- Item register functions
@@ -69,11 +73,19 @@ public class ModItems {
         // then modify the item group entries to include this item in the Ingredients item group
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
     }
-    static void registerRubyArmorItems() {
+    static void registerRubyItems() {
+
+        registerItem("ruby", RUBY, ItemGroups.INGREDIENTS);
+        FuelRegistry.INSTANCE.add(RUBY, 5000); // add ruby as furnace fuel
+
+        registerItem("ruby_block", RUBY_BLOCK_ITEM, ItemGroups.BUILDING_BLOCKS); // register with same name as associated block
 
         registerItem("ruby_helmet", RUBY_HELMET, ItemGroups.COMBAT);
         registerItem("ruby_chestplate", RUBY_CHESTPLATE, ItemGroups.COMBAT);
         registerItem("ruby_leggings", RUBY_LEGGINGS, ItemGroups.COMBAT);
         registerItem("ruby_boots", RUBY_BOOTS, ItemGroups.COMBAT);
+
+        registerItem("ruby_pickaxe", RUBY_PICKAXE_ITEM, ItemGroups.TOOLS);
+
     }
 }

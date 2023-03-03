@@ -19,6 +19,7 @@ public class ModStats {
     public static final Identifier DOUBLE_JUMPS = new Identifier(TutorialMod.MOD_ID, "double_jumps");
     public static final Identifier AFK_BLOCKS_PLACED = new Identifier(TutorialMod.MOD_ID, "afk_blocks_placed");
     public static final Identifier SPAWNERS_SILK_TOUCHED = new Identifier(TutorialMod.MOD_ID, "spawners_silk_touched");
+    public static final Identifier SCULK_SILK_TOUCHED = new Identifier(TutorialMod.MOD_ID, "sculk_silk_touched");
 
     // register all the stats
     public static void registerStats() {
@@ -29,6 +30,7 @@ public class ModStats {
         registerStat("double_jumps", DOUBLE_JUMPS, StatFormatter.DEFAULT);
         registerStat("afk_blocks_placed", AFK_BLOCKS_PLACED, StatFormatter.DEFAULT);
         registerStat("spawners_silk_touched", SPAWNERS_SILK_TOUCHED, StatFormatter.DEFAULT);
+        registerStat("sculk_silk_touched", SCULK_SILK_TOUCHED, StatFormatter.DEFAULT);
     }
 
     public static void registerStat(String name, Identifier ID, StatFormatter type) {

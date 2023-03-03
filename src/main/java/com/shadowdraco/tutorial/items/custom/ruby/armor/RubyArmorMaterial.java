@@ -1,4 +1,4 @@
-package com.shadowdraco.tutorial.items;
+package com.shadowdraco.tutorial.items.custom.ruby.armor;
 
 
 import com.shadowdraco.tutorial.registry.ModItems;

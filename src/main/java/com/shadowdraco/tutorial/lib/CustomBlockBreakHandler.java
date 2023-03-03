@@ -45,6 +45,11 @@ public class CustomBlockBreakHandler {
                     player.dropItem(Items.SPAWNER.getDefaultStack(), false, true);
                     player.incrementStat(ModStats.SPAWNERS_SILK_TOUCHED);
                 }
+                if (state.getBlock() == Blocks.SCULK_SENSOR) {
+                    player.sendMessage(Text.literal("Awwwwweee thank you!"));
+                    player.dropItem(Items.SCULK_SENSOR.getDefaultStack(), false, true);
+                    //player.incrementStat(ModStats.SCULK_SILK_TOUCHED);
+                }
             }
         }
     }

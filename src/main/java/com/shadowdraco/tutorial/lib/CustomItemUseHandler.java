@@ -1,7 +1,7 @@
 package com.shadowdraco.tutorial.lib;
 
 import com.shadowdraco.tutorial.enchantment.AFKMineEnchantment;
-import com.shadowdraco.tutorial.items.custom.RubyItem;
+import com.shadowdraco.tutorial.items.custom.ruby.RubyItem;
 import com.shadowdraco.tutorial.items.custom.SapphireItem;
 import com.shadowdraco.tutorial.registry.ModEnchantments;
 import com.shadowdraco.tutorial.registry.ModItems;
