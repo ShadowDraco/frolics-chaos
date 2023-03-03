@@ -16,12 +16,12 @@ public class RubyToolMaterial implements ToolMaterial {
 
     @Override
     public float getMiningSpeedMultiplier() {
-        return 10.0F;
+        return 12.0F;
     }
 
     @Override
     public float getAttackDamage() {
-        return 5.0F;
+        return 2.0F;
     }
 
     @Override

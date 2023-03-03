@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 public class RubyPickaxeItem extends PickaxeItem {
     public RubyPickaxeItem() {
 
-        super(RubyToolMaterial.INSTANCE, 5, 1.7F, new FabricItemSettings().fireproof());
+        super(RubyToolMaterial.INSTANCE, 3, 1.7F, new FabricItemSettings().fireproof());
     }
 
     @Override

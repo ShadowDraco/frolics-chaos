@@ -36,12 +36,12 @@
     - places a hollow shell that will not craft more rubies
     - UNcharges consume one ruby - so you can toggle before losing your last one
     - VERY good furnace fuel
-    - **Ruby Armor** - better than diamond! Comes with enchants! High enchantability!
-    
+    - **Ruby Armor** - better than diamond! Comes with enchants! Very High enchantability!
+    - **Ruby Tools** - Better than Netherite! Comes with enchants ooooo! Very High Enchantability
   <br><br>
   
   - added **Lovely** enchantment (max level 3)
-    - "silk touch" spawners 
+    - "silk touch" spawners, sculk sensors
     - when holding the enchanted **Tool**:
       - regeneration when hit by a mob (not projectiles or explosions they caused)
       - restore small amount of hunger as well
@@ -74,6 +74,8 @@
 - ### Todo
   - add blocks for mob drops to create more recipes like blaze block
   - add more spawn egg recipes 
+  - add more tools, stats, silk-touchable items
+  - add a player canon ?
 
 ## Setup - Mod Users 
 
