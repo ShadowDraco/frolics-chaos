@@ -1,5 +1,7 @@
 # Frolic's Chaos
 
+## Download [On curseforge](https://legacy.curseforge.com/minecraft/mc-mods/frolics-chaos)
+
 ## My first official minecraft mod
 
 - Written with Fabric API for 1.19.3
@@ -87,9 +89,10 @@
 ## Setup - Mod Users
 
 - Download and install 1.19.3 Fabric (or place the mod right into your already prepared modpack / mods folder!)
-- Download the mod from the repo (draco-tutorial-mod.<version>.jar **and sources.jar**)
+- Download the mod from the repo (frolics-chaos.<version>.jar)
 - Place .jar files into your mods folder.
-
+- Play!
+  
 ## Setup - Mod Developers
 
 For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
