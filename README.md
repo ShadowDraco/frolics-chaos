@@ -95,6 +95,7 @@
 For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
 
 Please feel free to communicate with me and and treat this project as an open source project!
+(Documentation is a good place to start perhaps?)
 The vision and documentation are not set up for open source, _this is not entirely beginner friendly. But any interested developers please feel free to fork it, clone it, and make a PR!_
 
 **Please give credit to original creator [ShadowDraco](https://github.com/ShadowDraco) if you use this mod for other purposes** Otherwise treat this as MIT
