@@ -3,6 +3,7 @@
 ## My first official minecraft mod
 
 - Written with Fabric API for 1.19.3
+- Open Source - more details below
 - Mod version 1.9.0 - Rebrand update!
 
 - ### Changelog
