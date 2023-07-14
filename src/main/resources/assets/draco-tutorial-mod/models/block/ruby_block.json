@@ -1,6 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "draco-tutorial-mod:block/ruby_block"
-  }
-}

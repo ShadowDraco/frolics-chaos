@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "draco-tutorial-mod",
+  "id": "frolics-chaos",
   "version": "${version}",
 
-  "name": "Draco Mod",
+  "name": "Frolic's Chaos",
   "description": "You won't believe what has happened",
   "authors": [
     "Ethan Storm"
@@ -14,12 +14,12 @@
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/draco-tutorial-mod/icon.png",
+  "icon": "assets/frolics-chaos/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.shadowdraco.tutorial.TutorialMod"
+      "com.frolic.chaos.FrolicsChaosMod"
     ]
   },
   "mixins": [],

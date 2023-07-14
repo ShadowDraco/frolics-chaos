@@ -1,0 +1,18 @@
+{
+  "item.frolics-chaos.ruby": "Ruby Gem",
+  "item.frolics-chaos.ruby_pickaxe": "Ruby Pick",
+  "item.frolics-chaos.ruby_helmet": "Ruby Helmet",
+  "item.frolics-chaos.ruby_chestplate": "Ruby Chestplate",
+  "item.frolics-chaos.ruby_leggings": "Ruby Leggings",
+  "item.frolics-chaos.ruby_boots": "Ruby Boots",
+  "item.frolics-chaos.sapphire": "Sapphire Gem",
+  "block.frolics-chaos.ruby_block": "Ruby Block",
+  "block.frolics-chaos.hollow_ruby_block": "Hollow Ruby Block",
+  "enchantment.frolics-chaos.lovely": "Lovely",
+  "enchantment.frolics-chaos.afk_mine": "Afk Mine",
+  "stat.frolics-chaos.consume_sapphire": "Sapphire Gems consumed...",
+  "stat.frolics-chaos.consume_ruby": "Ruby Gems consumed...",
+  "stat.frolics-chaos.spawners_silk_touched": "Spawners silk touched",
+  "stat.frolics-chaos.afk_blocks_placed": "Blocks Placed Afk Mining",
+  "stat.frolics-chaos.double_jumps": "Times Double Jumped"
+}

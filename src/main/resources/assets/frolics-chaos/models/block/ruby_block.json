@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "frolics-chaos:block/ruby_block"
+  }
+}
